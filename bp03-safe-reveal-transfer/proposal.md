@@ -1,7 +1,7 @@
 
 (initially written by domo) 
 
-from Unisat has suggested an alternative idea that could provide a more elegant solution. It is explained as follows:
+Unisat has suggested an elegant idea as an alternative to the fraction function. This is it explained in detail:
 
 The "balance sent as fee" rule was implemented as a protective measure against spam fractionalization in ordinal-agnostic applications, a need underscored by recent challenges with OP_RETURN protocol mints. This rule ensures that balances, instead of being transferred to miners as fees, are reverted to the sender's available balance. This design not only safeguards against unintentional balance expenditure but also facilitates the subsequent solution proposed for addressing spam fractionalization issues.
 
