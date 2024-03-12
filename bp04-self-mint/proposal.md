@@ -30,6 +30,8 @@ Under this mode, when issuing the mint inscription, the deploy inscription must 
 }
 ```
 * When (max=0), BRC-20 rules do not allow this situation, but it is reasonable to define (max=0) as allowing an unlimited maximum issuance for self_mint. (BRC-20 itself requires the maximum asset limit to be max_uint64, which we continue to use here.)
+
+For BRC20, the meaning of max is the total upper limit of all mints. BRC20 tokens cannot truly disappear. No matter if the tokens are transferred to any non-spendable address, it will not affect the max restriction rule for mints.
 ```
 {
   "p": "brc-20",
@@ -45,6 +47,8 @@ Under this mode, when issuing the mint inscription, the deploy inscription must 
 
 Since the format is compatible with the original format, indexers that do not support this proposal will still be able to index such tokens. However, the method of issuance would still be public, leading to market confusion.
 
+Thanks to @SeeSharp's suggestion, We can also consider self-issuing a token with a 5-byte ticker to better isolate existing tokens.
+
 ## FAQ
 
 ### Alternative Option B:
@@ -59,6 +63,9 @@ Tokens with self_mint could also be created by adding a new operation (op) inste
   "lim": "1000"
 }
 ```
+
+
+
 #### Advantages:
 
 Introducing a new operation will isolate it from the current indexing, and indexers that don't upgrade will not recognize this deploy inscription, which to some extent reduces confusion.
