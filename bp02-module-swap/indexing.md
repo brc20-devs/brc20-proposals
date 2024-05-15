@@ -47,7 +47,7 @@
 
 When releasing, specify a height update protocol and make the following changes:
 
-- Support all address types, using lowercase pkscript format, and bip332 requires supporting signatures for all address types.
+- Support all address types, using lowercase pkscript format, and bip322 requires supporting signatures for all address types.
 - To support non-4 character tickers, function parameters are token0/token1, and it is necessary to pass 2 clear parameters to transmit token0 and token1.
 - Directly close the conditional-approve inscription function and no longer track individual inscription's repetitive transfer events.
 - Trading pairs' internal storage will no longer use token0/token1 to describe.
