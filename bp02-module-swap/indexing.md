@@ -14,6 +14,9 @@
 - In deploy inscriptions, the init object's all keys and values must be strings.
 - In deploy inscriptions, the init object must contain fields: `gas_tick`, `gas_to`, `fee_to`, `sequencer`.
 - In deploy inscriptions, the `swap_fee_rate` is optional, defaulting to 0; precision is 3 decimal places.
+- Using transfer to send the balance to the module address before the module is deployed is not considered as a deposit for this module, and the balance will not be returned. It is a non-standard burn.
+- For a module that has enabled withdrawal, if the balance is withdrawn directly to the burn address, the withdrawal will be successful and burned.
+- For a module that has enabled withdrawal, if the balance is withdrawn directly to a module address, it is not considered a deposit for this module and will not be returned. It is a non-standard burn.
 
 **Commit Rules**
 
